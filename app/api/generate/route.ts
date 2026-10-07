@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+
 // 마크다운 코드블록 제거 유틸리티 함수
 function cleanMarkdownCodeBlock(raw: string): string {
   let cleaned = raw.trim();

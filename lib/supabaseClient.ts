@@ -15,11 +15,18 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  realtime: {
-    params: {
-      eventsPerSecond: 10,
+const defaultDummyUrl = 'https://dummy-build.supabase.co';
+const defaultDummyKey = 'dummy-anon-key-for-build';
+
+export const supabase = createClient(
+  supabaseUrl || defaultDummyUrl,
+  supabaseAnonKey || defaultDummyKey,
+  {
+    realtime: {
+      params: {
+        eventsPerSecond: 10,
+      },
     },
-  },
-});
+  }
+);
 
